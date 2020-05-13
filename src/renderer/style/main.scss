@@ -1,0 +1,14 @@
+@import 'bootstrap/scss/bootstrap.scss';
+
+html, body, div, ul, li, p, span {
+    margin: 0;
+    padding: 0;
+}
+.defaultFont {
+    font-family: "Segoe WPC", "Segoe UI", "Microsoft YaHei",sans-serif;
+    font-size: 13px;
+}
+
+body {
+    background-color: green;
+}

@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import axios from 'axios'
 
+import 'bootstrap/dist/css/bootstrap.css'
+
+import './style/main.scss'
+
 import App from './App'
 import router from './router'
 import store from './store'

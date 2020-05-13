@@ -23,8 +23,14 @@ function createWindow () {
     height: 563,
     useContentSize: true,
     width: 1000,
+    frame: false,
+    // titleBarStyle: 'hidden',
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      defaultFontFamily: {
+        standard: 'Microsoft YaHei'
+      },
+      defaultFontSize: 13
     }
   })
 
