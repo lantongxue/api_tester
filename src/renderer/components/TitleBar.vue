@@ -1,10 +1,11 @@
 <template>
   <div class="title-bar title-bar-row">
     <div class="title-bar-col-5">
+      <span class="title-bar-logo">ATR</span>
       <div class="title-bar-menu-bar">
         <ul class="title-bar-menu-list">
           <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            文件
+            文件文件文件
             <div class="title-bar-menu-sub-items">
               <ul>
                 <li class="title-bar-sub-menu-item">新建文件</li>
@@ -76,10 +77,16 @@
             帮助
             <div class="title-bar-menu-sub-items">
               <ul>
-                <li class="title-bar-sub-menu-item">11帮助文件</li>
-                <li class="title-bar-sub-menu-item">12帮助窗口</li>
+                <li class="title-bar-sub-menu-item" @click="projectHome">项目主页</li>
                 <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
+                <li class="title-bar-sub-menu-item" @click="liscense">查看许可证</li>
+                <li class="title-bar-sub-menu-item" @click="projectHome">第三方声明</li>
+                <li class="title-bar-menu-divider"></li>
+                <li class="title-bar-sub-menu-item" @click="openDevTools">开发人员工具</li>
+                <li class="title-bar-menu-divider"></li>
+                <li class="title-bar-sub-menu-item">检查更新</li>
+                <li class="title-bar-menu-divider"></li>
+                <li class="title-bar-sub-menu-item">关于</li>
               </ul>
             </div>
           </li>
@@ -87,22 +94,22 @@
       </div>
     </div>
     <div class="title-bar-col-6">
-      <div class="title-bar-title">asdkadakjdhkjahdkj</div>
+      <div class="title-bar-title">Api Tester</div>
     </div>
     <div class="title-bar-col-1">
       <div class="title-bar-tools">
         <div class="btn-group">
-          <button class="window-minimize" type="button" @click="minimize">
-            <svg fill="#ffffff" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M861.52533333 488.46506667H162.47466667a23.30168889 23.30168889 0 1 0 0 46.60337778h699.05066666a23.30168889 23.30168889 0 1 0 0-46.60337778z" p-id="3707"></path></svg>
+          <button class="btn window-minimize" type="button" @click="minimize">
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5006"><path d="M0 544h1024v-64H0z" p-id="5007" fill="#ffffff"></path></svg>
           </button>
-          <button class="window-maximize" type="button" v-show="!isMaximized" @click="maximize">
-            <svg fill="#ffffff" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M832 832H192V192h640v640z m50-690H142v740h740V142z" p-id="1512"></path></svg>
+          <button class="btn window-maximize" type="button" v-show="!isMaximized" @click="maximize">
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3452"><path d="M-90.39302107 1114.38819781L-90.39302107-90.38980503l1204.78443333 0 0 1204.77800284L-90.39302107 1114.38819781zM963.79436321 60.20885124L60.20563679 60.20885124l0 903.58872799 903.58872797 0L963.79436321 60.20885124z" p-id="3453" fill="#ffffff"></path></svg>
           </button>
-          <button class="window-restore" type="button" v-show="isMaximized" @click="restore">
-            <svg fill="#ffffff" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M754.49 630.907a20.48 20.48 0 1 0 0 40.96h77.21a20.48 20.48 0 0 0 20.48-20.48V201.83a20.48 20.48 0 0 0-20.48-20.48H382.143a20.48 20.48 0 0 0-20.48 20.48v77.108a20.48 20.48 0 1 0 40.96 0V222.31H811.2v408.597H754.49z" p-id="2723"></path><path d="M217.28 836.69h449.576a20.48 20.48 0 0 0 20.48-20.48V366.653a20.48 20.48 0 0 0-20.48-20.48H217.3a20.48 20.48 0 0 0-20.48 20.48V816.21a20.439 20.439 0 0 0 20.46 20.48z m20.48-449.557h408.616V795.73H237.78V387.133z" p-id="2724"></path></svg>
+          <button class="btn window-restore" type="button" v-show="isMaximized" @click="restore">
+            <svg viewBox="0 0 1157 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1534"><path d="M1086.034 753.71H878.22v269.404h-70.01v-1.33H70.896v1.33H0.886V269.403H269.404V0.887h886.639v752.825h-70.01zM70.896 951.775H808.21V339.413H70.896v612.362z m1015.138-880.88h-746.62v198.509H878.22V683.7h207.813V70.896z" p-id="1535" fill="#ffffff"></path></svg>
           </button>
-          <button class="window-close" type="button" @click="close">
-            <svg fill="#ffffff" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M184.648 836.342a20.5 20.5 0 0 0 28.979-0.02l292.7-293.049 292.7 293.048a20.48 20.48 0 1 0 29-28.938L535.613 514.642l292.393-292.72a20.48 20.48 0 1 0-28.979-28.939l-292.72 293.048-292.7-293.048a20.48 20.48 0 1 0-28.98 28.938L477 514.641 184.627 807.384a20.48 20.48 0 0 0 0.02 28.959z" p-id="5022"></path></svg>
+          <button class="btn window-close" type="button" @click="close">
+            <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10707"><path d="M584.517818 512L1024 951.482182l-72.517818 72.517818L512 584.517818 72.517818 1024 0 951.482182 439.482182 512 0 72.517818 72.517818 0 512 439.482182 951.482182 0 1024 72.517818 584.517818 512z" p-id="10708" fill="#ffffff"></path></svg>
           </button>
         </div>
       </div>
@@ -117,12 +124,20 @@ export default {
       isMaximized: false
     }
   },
+  mounted () {
+    this.$electron.remote.getCurrentWindow().on('maximize', (e) => {
+      this.isMaximized = true
+    })
+    this.$electron.remote.getCurrentWindow().on('unmaximize', (e) => {
+      this.isMaximized = false
+    })
+  },
   methods: {
     rootMenuHover ($event) {
       let subMenu = $event.target.querySelector('.title-bar-menu-sub-items')
       if (subMenu !== null) {
-        let index = [...document.querySelectorAll('.title-bar-menu-list>.title-bar-menu-item')].indexOf($event.target)
-        subMenu.style.left = (($event.target.offsetWidth * index)) + 'px'
+        let leftOffset = $event.target.offsetLeft
+        subMenu.style.left = leftOffset + 'px'
         subMenu.style.display = 'block'
       }
     },
@@ -133,7 +148,6 @@ export default {
       }
     },
     maximize () {
-      console.log(this.$electron)
       this.$electron.remote.getCurrentWindow().maximize()
       this.isMaximized = true
     },
@@ -146,6 +160,23 @@ export default {
     },
     close () {
       this.$electron.remote.app.quit()
+    },
+    _hideSubMenu (target) {
+      if (target.parentNode.parentNode.className.indexOf('title-bar-menu-sub-items') !== -1) {
+        target.parentNode.parentNode.style.display = 'none'
+      }
+    },
+    openDevTools ($event) {
+      this._hideSubMenu($event.target)
+      this.$electron.remote.getCurrentWindow().webContents.openDevTools()
+    },
+    projectHome ($event) {
+      this._hideSubMenu($event.target)
+      this.$electron.remote.shell.openExternal('https://github.com/lantongxue/api_tester')
+    },
+    liscense ($event) {
+      this._hideSubMenu($event.target)
+      this.$electron.remote.shell.openExternal('https://github.com/lantongxue/api_tester/blob/master/LICENSE')
     }
   }
 }
@@ -157,6 +188,7 @@ export default {
   $titleBarBackgroundColor:  rgb(50, 50, 51);
   $titleBarColor: rgb(255, 255, 255);
   $subMenuBackgroundColor: #3c3a3ac9;
+  $titleBarLogoSize: 30px;
   .title-bar.title-bar-row{
     @extend .row;
     margin: unset;
@@ -167,37 +199,76 @@ export default {
     background-color: $titleBarBackgroundColor;
     color: $titleBarColor;
     -webkit-app-region: drag;
-    .title-bar-col-6{
-      @extend .col-6;
+    .title-bar-col-1{
+      @extend .col-1;
+      padding: unset;
+    }
+    .title-bar-col-4{
+      @extend .col-4;
       padding: unset;
     }
     .title-bar-col-5{
       @extend .col-5;
       padding: unset;
     }
-     .title-bar-col-1{
-      @extend .col-1;
+    .title-bar-col-6{
+      @extend .col-6;
       padding: unset;
     }
+    .title-bar-col-7{
+      @extend .col-7;
+      padding: unset;
+    }
+    .title-bar-logo{
+      width: $titleBarLogoSize;
+      height: $titleBarLogoSize;
+      float: left;
+      padding: 5px;
+      color: #adfd63;
+      text-shadow: 0 1px 0 red;
+    }
    .title-bar-title{
-     display: inline-flex;
      height: $titleBarHeight;
-     position: absolute;
-     align-items: center;
      padding: 0 8px;
+     line-height: $titleBarHeight;
    }
    .title-bar-tools{
      float: right;
      button{
+       @extend .btn;
        color:#ffffff;
        background-color: transparent;
        border: none;
-       outline: none;
-       padding: 7px;
-       font-size: 10px;
+       outline: none !important;
+       padding: 5.5px 15px;
+       border-radius: 0;
      }
      button:hover{
        background-color: rgba($color: #cccccc, $alpha: 0.3);
+     }
+     button:focus{
+       @extend .btn:focus;
+       box-shadow: none;
+     }
+     .window-minimize{
+      svg{
+        width: 11px;
+      }
+     }
+     .window-maximize{
+      svg{
+        width: 11px;
+      }
+     }
+     .window-restore{
+      svg{
+        width: 13px;
+      }
+     }
+     .window-close{
+      svg{
+        width: 10px;
+      }
      }
    }
   }

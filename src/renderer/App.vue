@@ -10,6 +10,11 @@
 import TitleBar from './components/TitleBar'
 export default {
   name: 'api_tester',
+  data: () => {
+    return {
+      say: 'hello'
+    }
+  },
   components: {
     TitleBar
   }
