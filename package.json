@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "kali <863448246@qq.com>",
   "description": "An electron-vue project",
-  "license": null,
+  "license": "GNU General Public License v3.0",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",

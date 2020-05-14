@@ -5,71 +5,20 @@
       <div class="title-bar-menu-bar">
         <ul class="title-bar-menu-list">
           <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            文件文件文件
+            项目
             <div class="title-bar-menu-sub-items">
               <ul>
-                <li class="title-bar-sub-menu-item">新建文件</li>
-                <li class="title-bar-sub-menu-item">新建窗口</li>
+                <li class="title-bar-sub-menu-item">新建项目</li>
                 <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">打开文件</li>
-                <li class="title-bar-sub-menu-item">打开文件夹</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
+                <li class="title-bar-sub-menu-item" @click="close">退出</li>
               </ul>
             </div>
           </li>
           <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            编辑
+            请求
             <div class="title-bar-menu-sub-items">
               <ul>
-                <li class="title-bar-sub-menu-item">2编辑文件</li>
-                <li class="title-bar-sub-menu-item">3编辑窗口</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            选择
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">4选择文件</li>
-                <li class="title-bar-sub-menu-item">5选择窗口</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            查看
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">5查看文件</li>
-                <li class="title-bar-sub-menu-item">6查看窗口</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            运行
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">7运行文件</li>
-                <li class="title-bar-sub-menu-item">8运行窗口</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            终端
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">9终端文件</li>
-                <li class="title-bar-sub-menu-item">10终端窗口</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">退出</li>
+                <li class="title-bar-sub-menu-item">新建请求</li>
               </ul>
             </div>
           </li>
