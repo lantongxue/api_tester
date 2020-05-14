@@ -8,7 +8,41 @@ html, body, div, ul, li, p, span {
     font-family: "Segoe WPC", "Segoe UI", "Microsoft YaHei",sans-serif;
     font-size: 13px;
 }
+html, body {
+    background: rgba(0, 0, 0, 0.5);
+}
 
-body {
-    background-color: green;
+button{
+    border-radius: unset;
+    border: none;
+}
+button:focus{
+    outline: none;
+}
+button:not(:disabled), [type="button"]:not(:disabled), .btn:not(:disabled):not(.disabled){
+    cursor: default;
+}
+.btn{
+    @extend button;
+    transition: none;
+}
+.btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-success:focus, .btn-success:not(:disabled):not(.disabled):active:focus, 
+.btn-danger:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, 
+.btn-warning:focus, .btn-warning:not(:disabled):not(.disabled):active:focus, 
+.btn-info:focus, .btn-info:not(:disabled):not(.disabled):active:focus, 
+.btn-light:focus, .btn-light:not(:disabled):not(.disabled):active:focus,
+.btn-dark:focus, .btn-dark:not(:disabled):not(.disabled):active:focus{
+    box-shadow: none;
+}
+.form-control{
+    border-radius: unset;
+    line-height: unset;
+    font-size: unset;
+    font-weight: normal;
+    transition: none;
+    &:focus{
+        box-shadow: none;
+    }
 }

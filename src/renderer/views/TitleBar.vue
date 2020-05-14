@@ -1,6 +1,6 @@
 <template>
   <div class="title-bar title-bar-row">
-    <div class="title-bar-col-5">
+    <div class="title-bar-col-4">
       <span class="title-bar-logo">ATR</span>
       <div class="title-bar-menu-bar">
         <ul class="title-bar-menu-list">
@@ -42,8 +42,8 @@
         </ul>
       </div>
     </div>
-    <div class="title-bar-col-6">
-      <div class="title-bar-title">Api Tester</div>
+    <div class="title-bar-col-7">
+      <div class="title-bar-title">{{title}}</div>
     </div>
     <div class="title-bar-col-1">
       <div class="title-bar-tools">
@@ -68,11 +68,12 @@
 
 <script>
 export default {
-  data: () => {
+  data () {
     return {
       isMaximized: false
     }
   },
+  props: ['title'],
   mounted () {
     this.$electron.remote.getCurrentWindow().on('maximize', (e) => {
       this.isMaximized = true
@@ -168,6 +169,14 @@ export default {
       @extend .col-7;
       padding: unset;
     }
+    .title-bar-col-8{
+      @extend .col-8;
+      padding: unset;
+    }
+    .title-bar-col-9{
+      @extend .col-9;
+      padding: unset;
+    }
     .title-bar-logo{
       width: $titleBarLogoSize;
       height: $titleBarLogoSize;
@@ -184,20 +193,19 @@ export default {
    .title-bar-tools{
      float: right;
      button{
-       @extend .btn;
        color:#ffffff;
        background-color: transparent;
        border: none;
        outline: none !important;
        padding: 5.5px 15px;
        border-radius: 0;
-     }
-     button:hover{
-       background-color: rgba($color: #cccccc, $alpha: 0.3);
-     }
-     button:focus{
-       @extend .btn:focus;
-       box-shadow: none;
+       &:hover{
+         background-color: rgba($color: #cccccc, $alpha: 0.3);
+       }
+       &:focus{
+        @extend .btn:focus;
+        box-shadow: none;
+      }
      }
      .window-minimize{
       svg{
@@ -218,6 +226,9 @@ export default {
       svg{
         width: 10px;
       }
+      &:hover{
+        background-color: rgb(187, 31, 31);
+      }
      }
    }
   }
@@ -235,6 +246,7 @@ export default {
         cursor: default;
         .title-bar-menu-sub-items{
           position: fixed;
+          z-index: 9999;
           background-color: $subMenuBackgroundColor;
           box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.43);
           display: none;
@@ -250,15 +262,15 @@ export default {
             li.title-bar-sub-menu-item{
               padding: 1px 30px;
               text-align: left;
-            }
-            li.title-bar-sub-menu-item:hover{
-              background-color: rgba($color: #088dfa, $alpha: 0.5);
+              &:hover{
+                background-color: rgba($color: #088dfa, $alpha: 0.5);
+              }
             }
           }
         }
-      }
-      li.title-bar-menu-item:hover{
-        background-color: rgba($color: #cccccc, $alpha: 0.3);
+        &:hover{
+          background-color: rgba($color: #cccccc, $alpha: 0.3);
+        }
       }
     }
   }
