@@ -1,6 +1,6 @@
 <template>
   <ul class="atr-list">
-    <ATRListItem v-for="(item, index) in items" :key="index" :onclick="item.onclick(item.value)" :title="item.title" :label="item.label"></ATRListItem>
+    <ATRListItem v-for="(item, index) in items" :key="index" :onclick="item.onclick" :value="item.value" :title="item.title" :label="item.label"></ATRListItem>
   </ul>
 </template>
 

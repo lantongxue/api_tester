@@ -1,6 +1,6 @@
 <template>
   <li @click="click">{{title}}
-    <span class="badge" :data-value="value" :class="'badge-'+label.type">{{label.text}}</span>
+    <span class="badge" :class="'badge-'+label.type">{{label.text}}</span>
   </li>
 </template>
 
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     click () {
-      this.onclick()
+      this.onclick(this.value)
     }
   }
 }
