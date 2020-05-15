@@ -1,9 +1,15 @@
 <template>
-  <div class="select">
-    <input class="current" readonly @click="showItems" type="text" @blur="hideItems" placeholder="请选择项目">
-    <ul>
-      <li v-for="item in items" :key="item.value" :data-value="item.value" @click="itemSelected">{{item.label}}</li>
-    </ul>
+  <div class="atr-select">
+    <input ref="_input" :value="label" :data-value="value" readonly @click="showItems" type="text" @blur="hideItems" :placeholder="placeholder">
+    <perfect-scrollbar
+      :options="{suppressScrollX: true}"
+      class="atr-list-panel"
+      ref="items"
+    >
+      <ul>
+        <li v-for="item in items" :key="item.value" :data-value="item.value" @mousedown="itemSelected">{{item.label}}</li>
+      </ul>
+    </perfect-scrollbar>
   </div>
 </template>
 
@@ -11,22 +17,20 @@
 export default {
   data () {
     return {
-      isShow: false
+      isShow: false,
+      value: '',
+      label: ''
     }
   },
   props: {
+    placeholder: {
+      type: String,
+      default: '请选择项'
+    },
     items: {
+      type: Array,
       default: () => {
-        return [
-          {
-            label: '没有哦',
-            value: ''
-          },
-          {
-            label: '有哦',
-            value: '1'
-          }
-        ]
+        return []
       }
     }
   },
@@ -38,29 +42,38 @@ export default {
         $event.target.focus()
         $event.target.style.borderBottom = '1px solid #00000021'
         $event.target.parentNode.style.boxShadow = '0 0 5px 0px rgba(0, 0, 0, 0.5)'
-        $event.target.parentNode.children[1].style.display = 'block'
+        this.$refs.items.$el.style.display = 'block'
         this.isShow = true
       }
     },
     hideItems ($event) {
-      $event.target.style.borderBottom = ''
-      $event.target.parentNode.style.boxShadow = ''
-      $event.target.parentNode.lastChild.style.display = 'none'
+      this.$refs._input.style.borderBottom = ''
+      this.$refs.items.$el.parentNode.style.boxShadow = ''
+      this.$refs.items.$el.style.display = 'none'
       this.isShow = false
     },
+    /**
+     * 解决input的blur和li的click冲突
+     * 将li的点击事件绑定在li的mousedown上，因为mousedown会先比blur触发
+     */
     itemSelected ($event) {
-      console.log($event)
+      $event.preventDefault()
+      this.hideItems()
+      this.value = $event.target.dataset['value']
+      this.label = $event.target.innerText
+      this.$emit('change', this.value)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.select{
+@import '../style/main.scss';
+.atr-select{
   background-color: #76777740;
   border-radius: 0;
   margin-bottom: 10px;
-  .current{
+  input{
     padding: 7px;
     color: white;
     cursor: default;
@@ -69,15 +82,17 @@ export default {
     width: 100%;
     background-color: transparent;
     &:hover{
-      background-color: rgba($color: #cccccc, $alpha: 0.3);
+      background-color: $hoverBgColor;
     }
     &::placeholder{
       color: white;
     }
   }
-  ul{
+  .atr-list-panel{
     display: none;
-    overflow-y: auto;
+    position: relative;
+    overflow: hidden;
+    max-height: 300px;
     li{
       list-style: none;
       cursor: pointer;

@@ -1,5 +1,23 @@
 @import 'bootstrap/scss/bootstrap.scss';
 
+// /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+// ::-webkit-scrollbar{
+//     width: 5px;
+//     background-color: transparent;
+// }
+
+// /*定义滚动条轨道 内阴影+圆角*/
+// ::-webkit-scrollbar-track {
+//     background-color: transparent;
+// }
+
+// /*定义滑块 内阴影+圆角*/
+// ::-webkit-scrollbar-thumb{
+//     background-color: #0000006e;
+// }
+
+$hoverBgColor: rgba($color: #cccccc, $alpha: 0.3);
+
 html, body, div, ul, li, p, span {
     margin: 0;
     padding: 0;
