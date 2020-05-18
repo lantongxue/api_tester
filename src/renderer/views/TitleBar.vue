@@ -137,7 +137,7 @@ export default {
   $titleBarHeight: 30px;
   $titleBarBackgroundColor:  rgb(50, 50, 51);
   $titleBarColor: rgb(255, 255, 255);
-  $subMenuBackgroundColor: #3c3a3ac9;
+  $subMenuBackgroundColor: #3c3a3a;
   $titleBarLogoSize: 30px;
   .title-bar.title-bar-row{
     @extend .row;
@@ -255,7 +255,7 @@ export default {
               list-style: none;
             }
             .title-bar-menu-divider{
-              height: 1px;
+              height: 0.1px;
               margin: 3px 10px;
               background-color: #cccccc;
             }

@@ -111,7 +111,6 @@ export default {
   position: relative;
   height: calc(100vh - 30px);
   width: 20%;
-  padding: 10px;
   background-color: rgba(72, 75, 74, 0.89);
   overflow: hidden;
 }
