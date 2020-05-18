@@ -7,7 +7,7 @@
       ref="items"
     >
       <ul>
-        <li v-for="item in items" :key="item.value" :data-value="item.value" @mousedown="itemSelected">{{item.label}}</li>
+        <li v-for="(item, index) in items" :key="index" :data-value="item.value" @mousedown="itemSelected">{{item.label}}</li>
       </ul>
     </perfect-scrollbar>
   </div>
@@ -40,15 +40,15 @@ export default {
         this.hideItems($event)
       } else {
         $event.target.focus()
-        $event.target.style.borderBottom = '1px solid #00000021'
-        $event.target.parentNode.style.boxShadow = '0 0 5px 0px rgba(0, 0, 0, 0.5)'
+        $event.target.parentNode.style.boxShadow = '0 -1px 5px 0px rgba(0, 0, 0, 0.5)'
+        this.$refs.items.$el.style.top = $event.target.parentNode.offsetHeight + 'px'
         this.$refs.items.$el.style.display = 'block'
         this.isShow = true
       }
     },
     hideItems ($event) {
-      this.$refs._input.style.borderBottom = ''
       this.$refs.items.$el.parentNode.style.boxShadow = ''
+      this.$refs.items.$el.style.top = '0'
       this.$refs.items.$el.style.display = 'none'
       this.isShow = false
     },
@@ -69,8 +69,10 @@ export default {
 
 <style lang="scss">
 @import '../style/main.scss';
+$bgColor: #767777;
 .atr-select{
-  background-color: #76777740;
+  position: relative;
+  background-color: $bgColor;
   border-radius: 0;
   margin-bottom: 10px;
   input{
@@ -90,9 +92,13 @@ export default {
   }
   .atr-list-panel{
     display: none;
-    position: relative;
+    background-color: $bgColor;
+    position: absolute;
+    min-width: 100%;
     overflow: hidden;
+    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.5);
     max-height: 300px;
+    z-index: 999;
     li{
       list-style: none;
       cursor: pointer;

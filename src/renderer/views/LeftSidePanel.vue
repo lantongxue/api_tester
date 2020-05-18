@@ -5,7 +5,7 @@
   >
     <div class="row">
       <div class="col">
-        <Select @change="change" placeholder="请选择项目" :items="[{label: '测试项目', value: '1'}]"></Select>
+        <Select @change="change" placeholder="请选择项目" :items="projectList"></Select>
       </div>
     </div>
     <div class="row">
@@ -45,6 +45,12 @@ export default {
   data () {
     return {
       currentTab: 'request-list',
+      projectList: [
+        {label: '测试项目', value: '1'},
+        {label: '测试项目', value: '1'},
+        {label: '测试项目', value: '1'},
+        {label: '测试项目', value: '1'}
+      ],
       requestList: [],
       historyList: [
         {
@@ -105,6 +111,7 @@ export default {
   position: relative;
   height: calc(100vh - 30px);
   width: 20%;
+  padding: 10px;
   background-color: rgba(72, 75, 74, 0.89);
   overflow: hidden;
 }

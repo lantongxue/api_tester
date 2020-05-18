@@ -26,7 +26,7 @@ function createWindow () {
     minHeight: 768,
     minWidth: 1200,
     frame: false,
-    transparent: true,
+    // transparent: true,
     // titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true,
