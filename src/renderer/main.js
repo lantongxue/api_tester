@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
-
+import VueSplit from 'vue-split-panel'
+import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
@@ -17,6 +18,7 @@ Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 Vue.use(PerfectScrollbar)
+Vue.use(VueSplit)
 
 /* eslint-disable no-new */
 new Vue({

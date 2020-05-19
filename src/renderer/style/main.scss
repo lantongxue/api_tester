@@ -60,8 +60,12 @@ button:not(:disabled), [type="button"]:not(:disabled), .btn:not(:disabled):not(.
     font-size: unset;
     font-weight: normal;
     transition: none;
+    background-color: transparent;
+    color: #ffffff;
     &:focus{
         box-shadow: none;
+        background-color: transparent;
+        color: #ffffff;
     }
 }
 .row{

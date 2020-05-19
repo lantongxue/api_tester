@@ -28,14 +28,10 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import TitleBar from './views/TitleBar'
 import Dialog from './components/Dialog'
 import LeftSidePanel from './views/LeftSidePanel'
 import RightSidePanel from './views/RightSidePanel'
-import VueSplit from 'vue-split-panel'
-
-Vue.use(VueSplit)
 
 export default {
   name: 'api_tester',

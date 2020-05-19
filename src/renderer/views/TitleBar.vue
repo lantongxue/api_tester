@@ -10,6 +10,8 @@
               <ul>
                 <li class="title-bar-sub-menu-item">新建项目</li>
                 <li class="title-bar-menu-divider"></li>
+                <li class="title-bar-sub-menu-item">当前项目设置</li>
+                <li class="title-bar-menu-divider"></li>
                 <li class="title-bar-sub-menu-item" @click="close">退出</li>
               </ul>
             </div>
@@ -19,6 +21,14 @@
             <div class="title-bar-menu-sub-items">
               <ul>
                 <li class="title-bar-sub-menu-item">新建请求</li>
+              </ul>
+            </div>
+          </li>
+          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
+            选项
+            <div class="title-bar-menu-sub-items">
+              <ul>
+                <li class="title-bar-sub-menu-item">通用设置</li>
               </ul>
             </div>
           </li>
