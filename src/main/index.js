@@ -25,7 +25,7 @@ function createWindow () {
     width: 1200,
     minHeight: 768,
     minWidth: 1200,
-    frame: false,
+    frame: process.platform === 'darwin',
     // transparent: true,
     // titleBarStyle: 'hidden',
     webPreferences: {

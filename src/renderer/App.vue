@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <title-bar />
-    </header>
+    <title-bar />
     <Dialog :is-show="show" @on-close="show = false">
       <span slot="modal-title">aaa</span>
       <div slot="modal-body">

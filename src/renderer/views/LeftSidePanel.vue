@@ -23,7 +23,7 @@
         <div class="tab-content" v-show="currentTab == 'request-list'">
           <perfect-scrollbar
             :options="{suppressScrollX: true}"
-            ref="tabContentScrollBar"
+            class="tabContentScrollBar"
           >
             <ATRList :items="requestList"></ATRList>
           </perfect-scrollbar>
@@ -31,7 +31,7 @@
         <div class="tab-content" v-show="currentTab == 'history-list'">
           <perfect-scrollbar
             :options="{suppressScrollX: true}"
-            ref="tabContentScrollBar"
+            class="tabContentScrollBar"
           >
             <ATRList :items="historyList"></ATRList>
           </perfect-scrollbar>
@@ -288,13 +288,6 @@ export default {
       this.currentTab = tab
       $event.target.classList.add('active')
     }
-  },
-  mounted () {
-    let tabContentOffsetHeight = this.$refs.projectSelectRow.offsetHeight + this.$refs.hrRow.offsetHeight + this.$refs.tabRow.offsetHeight
-    this.$refs.tabContentScrollBar.$el.style.height = this.$refs.leftSidePanel.offsetHeight - tabContentOffsetHeight + 'px'
-    this.$electron.remote.getCurrentWindow().on('resize', (e) => {
-      this.$refs.tabContentScrollBar.$el.style.height = this.$refs.leftSidePanel.offsetHeight - tabContentOffsetHeight + 'px'
-    })
   }
 }
 </script>
@@ -320,5 +313,8 @@ export default {
   &.active{
     background-color: $hoverBgColor;
   }
+}
+.tabContentScrollBar{
+  height: calc(100vh - 142.5px);
 }
 </style>

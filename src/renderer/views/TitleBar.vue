@@ -42,10 +42,10 @@
         </ul>
       </div>
     </div>
-    <div class="title-bar-col-7">
+    <div :class="{'title-bar-col-8': isMacOS, 'title-bar-col-7': !isMacOS}">
       <div class="title-bar-title">{{title}}</div>
     </div>
-    <div class="title-bar-col-1">
+    <div class="title-bar-col-1" v-if="!isMacOS">
       <div class="title-bar-tools">
         <div class="btn-group">
           <button class="btn window-minimize" type="button" @click="minimize">
@@ -70,7 +70,8 @@
 export default {
   data () {
     return {
-      isMaximized: false
+      isMaximized: false,
+      isMacOS: process.platform === 'darwin'
     }
   },
   props: ['title'],
@@ -149,6 +150,7 @@ export default {
     background-color: $titleBarBackgroundColor;
     color: $titleBarColor;
     -webkit-app-region: drag;
+    margin-top: 20px;
     .title-bar-col-1{
       @extend .col-1;
       padding: unset;
