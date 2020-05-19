@@ -17,26 +17,52 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </Dialog>
-    <LeftSidePanel></LeftSidePanel>
+    <Split style="height: calc(100vh - 30px);">
+      <SplitArea :size="25" :minSize="296">
+        <LeftSidePanel></LeftSidePanel>
+      </SplitArea>
+      <SplitArea :size="75" :minSize="rightSideWidth">
+        <RightSidePanel></RightSidePanel>
+      </SplitArea>
+    </Split>
     <!-- <button @click="show = true" class="btn btn-dark">ssss</button> -->
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import TitleBar from './views/TitleBar'
 import Dialog from './components/Dialog'
 import LeftSidePanel from './views/LeftSidePanel'
+import RightSidePanel from './views/RightSidePanel'
+import VueSplit from 'vue-split-panel'
+
+Vue.use(VueSplit)
+
 export default {
   name: 'api_tester',
   data () {
     return {
-      show: false
+      show: false,
+      rightSideWidth: window.innerWidth / 2
     }
   },
   components: {
     TitleBar,
     Dialog,
-    LeftSidePanel
+    LeftSidePanel,
+    RightSidePanel
+  },
+  mounted () {
+    this.$electron.remote.getCurrentWindow().on('resize', (e) => {
+      this.rightSideWidth = e.sender.getSize()[0] / 2
+    })
   }
 }
 </script>
+
+<style lang="scss">
+  .gutter{
+    background-color: #00000014;
+  }
+</style>

@@ -41,7 +41,7 @@ export default {
       } else {
         $event.target.focus()
         $event.target.parentNode.style.boxShadow = '0 -1px 5px 0px rgba(0, 0, 0, 0.5)'
-        this.$refs.items.$el.style.top = $event.target.parentNode.offsetHeight + 'px'
+        this.$refs.items.$el.style.top = $event.target.parentNode.offsetHeight + 1 + 'px'
         this.$refs.items.$el.style.display = 'block'
         this.isShow = true
       }
