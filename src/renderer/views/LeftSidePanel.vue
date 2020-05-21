@@ -69,6 +69,8 @@ export default {
           value: {a: '1', b: '2'},
           onclick: (value) => {
             console.log(value)
+            this.$store.dispatch('someAsyncTask')
+            console.log(this.$store.state.Counter.main)
           }
         },
         {
