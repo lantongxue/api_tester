@@ -8,12 +8,12 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <Select placeholder="请求方式" :items="methods"></Select>
+              <Select placeholder="请求方式" :items="methods" :label="request.method" :value="request.method"></Select>
             </div>
           </div>
           <div class="col-7">
             <div class="form-group">
-              <input type="email" class="form-control">
+              <input type="text" :value="request.url" class="form-control">
             </div>
           </div>
           <div class="col">
@@ -86,6 +86,11 @@ export default {
   },
   components: {
     Select
+  },
+  computed: {
+    request () {
+      return this.$store.state.LoadRequest.main
+    }
   },
   methods: {
     click ($event) {

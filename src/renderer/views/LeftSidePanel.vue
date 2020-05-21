@@ -66,11 +66,12 @@ export default {
             type: 'primary',
             text: 'GET'
           },
-          value: {a: '1', b: '2'},
+          value: {
+            method: 'GET',
+            url: 'https://www.baidu.com/23'
+          },
           onclick: (value) => {
-            console.log(value)
-            this.$store.dispatch('someAsyncTask')
-            console.log(this.$store.state.Counter.main)
+            this.$store.dispatch('setData', value)
           }
         },
         {
@@ -79,198 +80,12 @@ export default {
             type: 'success',
             text: 'POST'
           },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
+          value: {
+            method: 'POST',
+            url: 'https://www.aa.com/23'
           },
           onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个PUT请求',
-          label: {
-            type: 'secondary',
-            text: 'PUT'
-          },
-          onclick: (value) => {
-            console.log(value)
-          }
-        },
-        {
-          title: '这是一个DELETE请求',
-          label: {
-            type: 'danger',
-            text: 'DELETE'
-          },
-          onclick: (value) => {
-            console.log(value)
+            this.$store.dispatch('setData', value)
           }
         }
       ]

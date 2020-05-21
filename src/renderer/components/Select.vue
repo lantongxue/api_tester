@@ -1,6 +1,6 @@
 <template>
   <div class="atr-select">
-    <input ref="_input" :value="label" :data-value="value" readonly @click="showItems" type="text" @blur="hideItems" :placeholder="placeholder">
+    <input ref="_input" :value="trueLabel" :data-value="trueValue" readonly @click="showItems" type="text" @blur="hideItems" :placeholder="placeholder">
     <perfect-scrollbar
       :options="{suppressScrollX: true}"
       class="atr-list-panel"
@@ -17,9 +17,8 @@
 export default {
   data () {
     return {
-      isShow: false,
-      value: '',
-      label: ''
+      trueValue: this.value,
+      trueLabel: this.label
     }
   },
   props: {
@@ -32,6 +31,12 @@ export default {
       default: () => {
         return []
       }
+    },
+    value: {
+      default: ''
+    },
+    label: {
+      default: ''
     }
   },
   methods: {
@@ -59,9 +64,14 @@ export default {
     itemSelected ($event) {
       $event.preventDefault()
       this.hideItems()
-      this.value = $event.target.dataset['value']
-      this.label = $event.target.innerText
+      this.trueValue = $event.target.dataset['value']
+      this.trueLabel = $event.target.innerText
       this.$emit('change', this.value)
+    }
+  },
+  watch: {
+    trueValue: (n, o) => {
+      console.log(n, o)
     }
   }
 }
