@@ -62,13 +62,13 @@
         </div>
       </SplitArea>
     </Split>
-    
+
   </perfect-scrollbar>
 </template>
 
 <script>
 import Select from '../components/Select'
-import jquery from 'jquery'
+
 export default {
   name: 'RightSidePanel',
   data () {
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     click ($event) {
-      jquery('.toast').toast('show')
+      this.jquery('.toast').toast('show')
     }
   }
 }

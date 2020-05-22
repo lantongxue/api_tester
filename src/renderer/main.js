@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+import jquery from 'jquery'
 import VueSplit from 'vue-split-panel'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -16,6 +17,8 @@ import store from './store'
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
+Vue.prototype.$ = jquery
+Vue.prototype.jquery = jquery
 
 Vue.use(PerfectScrollbar)
 Vue.use(VueSplit)

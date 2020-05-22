@@ -33,10 +33,18 @@ export default {
       }
     },
     value: {
-      default: ''
+      type: String
     },
     label: {
-      default: ''
+      type: String
+    }
+  },
+  watch: {
+    value (n, o) {
+      this.trueValue = n
+    },
+    label (n, o) {
+      this.trueLabel = n
     }
   },
   methods: {
@@ -67,11 +75,6 @@ export default {
       this.trueValue = $event.target.dataset['value']
       this.trueLabel = $event.target.innerText
       this.$emit('change', this.value)
-    }
-  },
-  watch: {
-    trueValue: (n, o) => {
-      console.log(n, o)
     }
   }
 }
