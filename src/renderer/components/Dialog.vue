@@ -1,7 +1,6 @@
 <template>
   <div v-if="isShow">
-    <div class="modal-backdrop show" @click="dialogClose"></div>
-    <div class="modal show" style="display: block">
+    <div class="modal fade" style="display: block">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

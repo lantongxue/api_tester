@@ -3,53 +3,7 @@
     <div class="title-bar-col-4">
       <span class="title-bar-logo">ATR</span>
       <div class="title-bar-menu-bar">
-        <ul class="title-bar-menu-list">
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            项目
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">新建项目</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">当前项目设置</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item" @click="close">退出</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            请求
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">新建请求</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            选项
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item">通用设置</li>
-              </ul>
-            </div>
-          </li>
-          <li class="title-bar-menu-item" @mouseenter="rootMenuHover" @mouseleave="rootMenuLeave">
-            帮助
-            <div class="title-bar-menu-sub-items">
-              <ul>
-                <li class="title-bar-sub-menu-item" @click="projectHome">项目主页</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item" @click="liscense">查看许可证</li>
-                <li class="title-bar-sub-menu-item" @click="projectHome">第三方声明</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item" @click="openDevTools">开发人员工具</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">检查更新</li>
-                <li class="title-bar-menu-divider"></li>
-                <li class="title-bar-sub-menu-item">关于</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+        <slot></slot>
       </div>
     </div>
     <div :class="{'title-bar-col-8': isMacOS, 'title-bar-col-7': !isMacOS}">
@@ -94,20 +48,6 @@ export default {
     })
   },
   methods: {
-    rootMenuHover ($event) {
-      let subMenu = $event.target.querySelector('.title-bar-menu-sub-items')
-      if (subMenu !== null) {
-        let leftOffset = $event.target.offsetLeft
-        subMenu.style.left = leftOffset + 'px'
-        subMenu.style.display = 'block'
-      }
-    },
-    rootMenuLeave ($event) {
-      let subMenu = $event.target.querySelector('.title-bar-menu-sub-items')
-      if (subMenu !== null) {
-        subMenu.style.display = 'none'
-      }
-    },
     maximize () {
       this.$electron.remote.getCurrentWindow().maximize()
       this.isMaximized = true
@@ -121,23 +61,6 @@ export default {
     },
     close () {
       this.$electron.remote.app.quit()
-    },
-    _hideSubMenu (target) {
-      if (target.parentNode.parentNode.className.indexOf('title-bar-menu-sub-items') !== -1) {
-        target.parentNode.parentNode.style.display = 'none'
-      }
-    },
-    openDevTools ($event) {
-      this._hideSubMenu($event.target)
-      this.$electron.remote.getCurrentWindow().webContents.openDevTools()
-    },
-    projectHome ($event) {
-      this._hideSubMenu($event.target)
-      this.$electron.remote.shell.openExternal('https://github.com/lantongxue/api_tester')
-    },
-    liscense ($event) {
-      this._hideSubMenu($event.target)
-      this.$electron.remote.shell.openExternal('https://github.com/lantongxue/api_tester/blob/master/LICENSE')
     }
   }
 }

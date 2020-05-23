@@ -74,3 +74,8 @@ button:not(:disabled), [type="button"]:not(:disabled), .btn:not(:disabled):not(.
 .col{
     padding: unset;
 }
+
+.modal .form-control {
+    @extend .form-control;
+    color: #000000;
+}
